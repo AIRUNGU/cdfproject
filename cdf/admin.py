@@ -22,7 +22,13 @@ class EventAdmin(LeafletGeoAdmin):
 class ActivityAdmin(LeafletGeoAdmin):
 	list_display = ['title','venue','description','mtime','mdate','created','modified']
 
+class ContactUsAdmin(LeafletGeoAdmin):
+	list_display = ['fullname','email','phonenumber','body','created','modified']
+	list_editable = ['email','phonenumber','body']
+	list_filter = ['created']
 
+
+admin.site.register(cdf_models.ContactUs,ContactUsAdmin)
 admin.site.register(cdf_models.Events,ActivityAdmin)
 admin.site.register(cdf_models.Suggestions,SuggestionsAdmin)
 admin.site.register(cdf_models.Boundary,LeafletGeoAdmin)

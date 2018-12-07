@@ -156,3 +156,18 @@ class SecurityEvent(models.Model):
 
 	def __str__(self):
 		return self.title
+
+class ContactUs(models.Model):
+	fullname =  models.CharField(max_length=200)
+	email = models.EmailField()
+	phonenumber = models.IntegerField()
+	body = models.TextField()
+	created = models.DateTimeField(auto_now_add=True)
+	modified = models.DateTimeField(auto_now=True)
+
+	def __str__(self):
+		return 'Information from {} through {}'.format(self.fullname, self.email)
+
+	class Meta:
+		ordering = ['-created']
+		verbose_name_plural = 'ContactUs'

@@ -32,5 +32,7 @@ class CommentForm(forms.ModelForm):
         model = cdf_models.Comment
         fields = ('author', 'text',)
 
-
-		
+class ContactUsForm(forms.ModelForm):
+	class Meta:
+		model = cdf_models.ContactUs
+		fields = ['fullname','email','phonenumber','body']

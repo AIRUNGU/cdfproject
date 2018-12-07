@@ -311,6 +311,22 @@ def ActivityData(request):
 			form = form_class
 	return render(request,'temps/activities.html',{'form':form_class})
 
+def ContactU(request):
+	form_class = cdf_forms.ContactUsForm
+	if request.method == 'POST':
+		fullname = request.POST.get('fullname')
+		email = request.POST.get('email')
+		phonenumber = request.POST.get('phonenumber')
+		body = request.POST.get('info')
+		created = timezone.now()
+		feedback = cdf_models.ContactUs.objects.create(fullname=fullname,
+				email=email,
+				phonenumber=phonenumber,
+				body=body,
+				created=created)
+		feedback.save()
+		return JsonResponse({'data':'Your Information has been received, Thank you for your contribution'})
+	return JsonResponse({'data':'Fill The forms'})
 
 # Serialization 
 

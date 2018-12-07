@@ -21,6 +21,7 @@ urlpatterns = [
     path(r'^incidents/',cdf_views.ReportDisplay,name='incidents'),
     path(r'incidentdata/',cdf_views.Incidence_json,name='incidentdata'),
     # path(r'projectsdata/',cdf_views.Projects_json,name='projectsdata'),
+    url(r'^inform/',cdf_views.ContactU,name='inform'),
     path(r'boundary/',cdf_views.ConstBoundary,name='boundary'),
     path(r'^event/',cdf_views.EventDisplay,name='event'),
     path(r'^comj/',cdf_views.commentjson,name='comj'),
