@@ -25,7 +25,7 @@ SECRET_KEY = '%$!i)r*(95u_n84)$e#lirs$2pbw0xi6r6xvqvs3e50kj(cj1x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['Irungu.pythonanywhere.com']
 
 
 # Application definition
@@ -44,7 +44,7 @@ INSTALLED_APPS = [
 ]
 
 SERIALIZATION_MODULES = {
-    "geojson": "django.contrib.gis.serializers.geojson", 
+    "geojson": "django.contrib.gis.serializers.geojson",
  }
 
 MIDDLEWARE = [
@@ -90,9 +90,16 @@ DATABASES = {
     #     'PASSWORD': 'transcend4gb',
     #     'PORT': 5432
     # }
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
+     'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'Irungu$cdfapp' ,
+        'USER': 'Irungu',
+        'PASSWORD': 'transcend4gb',
+        'HOST': 'Irungu.mysql.pythonanywhere-services.com'
     }
 }
 
@@ -121,7 +128,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -132,9 +139,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-STATICFILES_DIR = [os.path.join(BASE_DIR,'static'),]
+# STATICFILES_DIR = [os.path.join(BASE_DIR,'static'),]
+# STATIC_URL = '/static/'
 STATIC_URL = '/static/'
-
+STATIC_ROOT = '/home/Irungu/cdfproject/cdfproject/staticfolder/static'
 
 
 MEDIA_URL = '/media/'
